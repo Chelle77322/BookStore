@@ -9,11 +9,11 @@ console.log('directory-name', __dirname);
 let developmentConfig = () => {
   return merge([
     {
-     mode: 'development',
-     entry: path.join(__dirname, "src/js/client", "index.js"),
+     mode: 'none',
+     entry: path.join(__dirname, "src/js/client/", "index.js"),
      output: {
-       path: path.join(__dirname, "dist", 'js'),
-       filename: '[name].js'
+       path: path.join(__dirname, "dist"),
+       filename: 'main.js'
      },
      debug: true,
      devtool: 'source-map',

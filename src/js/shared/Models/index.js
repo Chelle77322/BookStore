@@ -1,1 +1,1 @@
-export const Novel = require("./novel");
+export const Novel = require("./novel.js");

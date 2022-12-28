@@ -4,7 +4,7 @@ function SearchForm(props){
 <div>
     <form>
         <div className="form-group">
-            <label htmlFor="search">Search for a book of interest:</label>
+            <label htmlFor="search">Search for a Book:</label>
             <input className="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id = "search" value = {props.search} name = "search" type = "text"
             placeholder = "Search for a book"
             onChange={props.handleinputchange}

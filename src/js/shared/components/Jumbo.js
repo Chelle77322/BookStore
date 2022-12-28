@@ -1,5 +1,5 @@
 import React from 'react';
-function Jumbotron(props){
+function Jumbotron(){
     return (
         <div className='blend hr'>
             <div className='nr blend'>

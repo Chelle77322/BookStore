@@ -3,7 +3,7 @@ import NovelCard from "../components/NovelCard.js";
 import Row from "../components/Row.js";
 import SearchForm from "../components/SearchForm.js";
 import Jumbotron from "../components/Jumbo.js";
-import api from "../../../utils/api.js";
+import api from "../utils/api.js";
 
 class Searched extends Component {
 

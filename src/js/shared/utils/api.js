@@ -10,8 +10,13 @@ SaveNovel: function(novelInfo){
 return axios.post(`/${novelInfo.id}`);
 },
 //Gets the books you have saved from the DB
-getNovels: function() {
-    return axios.get("/api/novels").then(result => result.data).catch(error => {throw error});
+getNovels: async function() {
+    try {
+        const result = await axios.get("/api/novels");
+        return result.data;
+    } catch (error) {
+        throw error;
+    }
 },
 //Gets novels with the id given 
 getNovel: function(id){

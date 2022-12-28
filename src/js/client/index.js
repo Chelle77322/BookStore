@@ -5,6 +5,6 @@ import "../shared/scss/main-style.scss";
 ReactDOM.render(
     <App />,
     document.getElementById('root'),
-    console.log(<App />)
+  
    
 );

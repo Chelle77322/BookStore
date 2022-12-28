@@ -1,6 +1,6 @@
-const router = require("express").Router();
-const novelRoutes = require("./novel.js");
 
+import novelRoutes from "./novel.js";
+const router = require("express").Router();
 //This gets the novel route
 router.use("/novels", novelRoutes);
-module.exports = router;
+export default router;

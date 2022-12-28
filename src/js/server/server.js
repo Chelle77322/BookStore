@@ -9,7 +9,7 @@ app.use(urlencoded({ extended: true }));
 app.use(json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(("/dist/index.html"));
+  app.use(("/public/"));
 }
 // Add routes, both API and view
 app.use(routes);

@@ -1,4 +1,4 @@
-import { Novel } from "../models";
+import { Novel } from "../Models/index.js";
 export function findAll(request, result) {
 
     Novel.find(request.query).sort({ date: -1 })

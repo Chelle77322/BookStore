@@ -12,7 +12,7 @@ console.log('directory-name', __dirname);
 let webpackBaseConfig = () => {
   return merge([
     {
-      mode: 'production',
+      mode: 'none',
       performance: {
         hints: false,
         maxEntrypointSize: 512000,
@@ -39,9 +39,17 @@ let webpackBaseConfig = () => {
             
               test: /\.(sa|sc|c)ss$/,
               use: [
-    
-                'css-loader',
-                'sass-loader',
+    {loader:'css-loader', 
+    options: {
+      sourceMap: true,
+    },},
+                
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    sourceMap: true,
+                  },
+                },
                 
               ]
             

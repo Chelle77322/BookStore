@@ -13,10 +13,10 @@ console.log('directory-name', __dirname)
 let productionConfig = () => {
   return merge([
     {
-      entry: path.join(__dirname, "src/js/client", "index.js"),
+      entry: path.join(__dirname, "src/js/client/", "index.js"),
       output: {
-        path: path.join(__dirname, "dist", 'js'),
-        filename: '[name].js'
+        path: path.join(__dirname, "dist"),
+        filename: 'main.js'
       },
       debug: true,
       devtool: 'source-map',
