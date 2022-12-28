@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "A Book store that uses the Google Books API , React and Webpack for an isomorphic app",
   "main": "index.js",
-  "scripts":{
+  "type": "module",
+  "scripts": {
     "start": "set NODE_ENV=development && webpack serve --open ",
-      "lint": "eslint --fix",
-      "build": "webpack"
-    },
+    "lint": "eslint --fix",
+    "build": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com/Chelle77322/BookStore.git"
@@ -27,7 +28,6 @@
     "url": "https://github.com/Chelle77322/BookStore/issues"
   },
   "homepage": "https://github.com/Chelle77322/BookStore#readme",
-
   "dependencies": {
     "@babel/core": "^7.20.7",
     "@babel/plugin-proposal-export-default-from": "^7.18.10",
@@ -59,6 +59,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.1",
     "react-scroll": "^1.8.9",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
