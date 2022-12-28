@@ -1,0 +1,1 @@
+export const Novel = require("./novel");

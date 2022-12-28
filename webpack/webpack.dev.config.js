@@ -10,12 +10,13 @@ let developmentConfig = () => {
   return merge([
     {
      mode: 'development',
-     entry:'./src/index.js',
-     output:{
-      path: path.resolve(__dirname, "dist",),
-      publicPath: "/",
-      main: "/dist/main.js",
+     entry: path.join(__dirname, "src/js/client", "index.js"),
+     output: {
+       path: path.join(__dirname, "dist", 'js'),
+       filename: '[name].js'
      },
+     debug: true,
+     devtool: 'source-map',
      performance: {
       hints: process.env.NODE_ENV === 'development' ? "warning" : false
     },

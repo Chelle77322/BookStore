@@ -1,0 +1,12 @@
+import { join } from "path";
+const router = require("express").Router();
+import apiRoutes from "./api";
+
+//Specifies the api routes used
+router.use("/api", apiRoutes);
+
+//If you don't get to any API routes send the default REACT App opening page instead
+router.use(function(request, result){
+    result.sendFile(join(__dirname, "/dist/index.html"));
+});
+export default router;
