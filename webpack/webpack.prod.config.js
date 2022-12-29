@@ -1,5 +1,6 @@
 import {merge}  from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
+//import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
@@ -13,10 +14,11 @@ console.log('directory-name', __dirname)
 let productionConfig = () => {
   return merge([
     {
-      entry: path.join(__dirname, "src/js/client/", "index.js"),
+      entry: path.join(__dirname, "src/js/client", "client.js"),
       output: {
-        path: path.join(__dirname, "dist"),
-        filename: 'main.js'
+        path: path.join(__dirname, "dist", "js"),
+        filename: 'main.js',
+        publicPath: "/public/",
       },
       debug: true,
       devtool: 'source-map',
@@ -29,6 +31,13 @@ let productionConfig = () => {
         minimizer: [new TerserPlugin()],
       },
       plugins: [
+
+        new HtmlWebpackPlugin({
+          
+          title: 'Book Store',
+          filename: '/public/index.html'
+          
+        }),
         new MiniCssExtractPlugin(),
         new OptimizeCssAssetsPlugin(),
         new webpack.DefinePlugin({

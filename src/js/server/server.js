@@ -1,6 +1,6 @@
 import express, { urlencoded, json} from "express";
 import { connect } from "mongoose";
-import routes from "./routes";
+import routes from "../shared/Routes/index.js";
 const app = express();
 const PORT = process.env.PORT || 1311;
 
