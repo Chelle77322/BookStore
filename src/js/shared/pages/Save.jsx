@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import Jumbotron from "../components/Jumbo.js";
+import Jumbotron from "../components/Jumbo.jsx";
 import api from "../utils/api.js";
-import SaveContainer from "../components/SaveContainer.js";
+import SaveContainer from "../components/SaveContainer.jsx";
+import "../scss/main-style.scss";
 
-class Saved extends Component{
+export default class Saved extends Component{
 
     state= {
         savedNovels: []
@@ -46,4 +47,3 @@ class Saved extends Component{
         )
     }
 }
-export default Saved;

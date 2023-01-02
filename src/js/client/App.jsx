@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import NavTabs from "../shared/components/NavTabs.js";
-import Saved from '../shared/pages/Save.js';
-import Search from '../shared/pages/Search.js';
+import NavTabs from "../shared/components/NavTabs.jsx";
+import Saved from '../shared/pages/Save.jsx';
+import Search from '../shared/pages/Search.jsx';
 
 function App() {
     return (

@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import NovelCard from "./NovelCard.js";
-import Row from "./Row.js";
+import NovelCard from "./NovelCard.jsx";
+import Row from "./Row.jsx";
 import SearchForm from "./SearchForm.js"
-import Jumbotron from "./Jumbo.js";
+import Jumbotron from "./Jumbo.jsx";
 
 import api from "../utils/api.js";
+console.log("api call" + api);
 
 class SearchContainer extends Component {
     state = {

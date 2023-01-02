@@ -1,24 +1,26 @@
-import express, { urlencoded, json} from "express";
-import { connect } from "mongoose";
+import express from "express";
+//import { connect } from "mongoose";
 import routes from "../shared/Routes/index.js";
+const PORT = process.env.PORT || 5055;
 const app = express();
-const PORT = process.env.PORT || 1311;
 
-// Define middleware here
-app.use(urlencoded({ extended: true }));
-app.use(json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(("/public/"));
+//Defines the middleware being used
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+//Gives up static pages from heroku
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static("goobooks/build"));
 }
-// Add routes, both API and view
+//Use the apiRoutes specified in folder
+
 app.use(routes);
-console.log(routes);
 
-// Connect to the Mongo DB
-connect(process.env.MONGODB_URI || "mongodb://localhost/goobooks");
+//Connects to the MongoDB Cloud Cluster
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goobooks");
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🍍 🍍   ==> API Server now listening on PORT ${PORT}!🍍 🍍 `);
+app.listen(PORT, () => {
+  console.log(`🙈  ==> API server now on port ${PORT}!`);
+ 
+
 });

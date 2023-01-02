@@ -1,5 +1,5 @@
 const router = require ("express").Router();
-import { findAll, create } from "../../controllers/novelControl";
+import { findAll, create } from "../../controllers/novelControl.js";
 //Gets and matches all books
 router.route("/").get(findAll)
 //**THIS MAY BE CAUSING ISSUES */

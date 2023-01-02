@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import NovelCard from "../components/NovelCard.js";
-import Row from "../components/Row.js";
-import SearchForm from "../components/SearchForm.js";
-import Jumbotron from "../components/Jumbo.js";
+import NovelCard from "../components/NovelCard.jsx";
+import Row from "../components/Row.jsx";
+import SearchForm from "../components/SearchForm.jsx";
+import Jumbotron from "../components/Jumbo.jsx";
 import api from "../utils/api.js";
+import "../scss/main-style.scss";
 
-class Searched extends Component {
+export class Searched extends Component {
 
     state = {
         search: "",
@@ -65,4 +66,3 @@ render() {
     )
 }
 }
-export default Searched;

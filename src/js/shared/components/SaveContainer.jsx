@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Jumbotron from "./Jumbo.js";
+import Jumbotron from "./Jumbo.jsx";
 
 class SaveContainer extends Component{
     render () {
