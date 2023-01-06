@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbo.jsx";
-import api from "../utils/api.js";
+import API from "../utils/api.js";
 import SaveContainer from "../components/SaveContainer.jsx";
-import "../scss/main-style.scss";
+import "../../../styles/main-style.scss";
 
 export default class Saved extends Component{
 
@@ -13,7 +13,7 @@ export default class Saved extends Component{
         this.getNovels()
     }
     deleteGoogleNovel = currentNovel => {
-        api.deleteNovel (currentNovel.id).then(result => {
+        API.deleteNovel (currentNovel.id).then(result => {
             console.log("You have removed this book from your saved list", result);
             this.getNovels();
         }).catch(error => {
@@ -21,7 +21,7 @@ export default class Saved extends Component{
         })
     }
     getNovels = () => {
-        api.getNovels().then (result => {
+        API.getNovels().then (result => {
             this.setState ({
                 savedNovels: result.data
             })

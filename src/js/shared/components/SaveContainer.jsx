@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Jumbotron from "./Jumbo.jsx";
 
-class SaveContainer extends Component{
+
+export default class SaveContainer extends Component{
     render () {
         return (
             <div className = "container-fluid five">
@@ -10,4 +11,3 @@ class SaveContainer extends Component{
         )
     }
 }
-export default SaveContainer;

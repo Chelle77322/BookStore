@@ -1,6 +1,13 @@
 /*!
  * The buffer module from node.js, for the browser.
  *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
@@ -253,6 +260,8 @@
  * Copyright(c) 2014-2017 Douglas Christopher Wilson
  * MIT Licensed
  */
+
+/*! For license information please see browser.umd.js.LICENSE.txt */
 
 /*! https://mths.be/punycode v1.3.2 by @mathias */
 

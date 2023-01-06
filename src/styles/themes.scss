@@ -24,7 +24,7 @@ $snarky-grad: linear-gradient(navy 75% aqua);
 @mixin blendy($img-path, $color: null, $grad: null,
 $blend: screen)
 {
-  $img-path: url('../banner.jpg');
+  $img-path: url('../assets/banner.jpg');
   @if $grad{
     background: $grad, $img-path;
   } @else {
@@ -34,7 +34,7 @@ $blend: screen)
   background-blend-mode: $blend;
 }
 .blend {
-  @include blendy($img-path: url('../banner.jpg'), $grad: $cool-grad);
+  @include blendy($img-path: url('../assets/banner.jpg'), $grad: $cool-grad);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../scss/main-style.scss"
+import "../../../styles/main-style.scss"
 function Jumbotron(){
     return (
         <div className='blend hr'>

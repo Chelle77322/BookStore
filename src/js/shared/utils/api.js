@@ -1,6 +1,6 @@
 import axios from "axios";
 //eslint-disable-next-line
-export default {
+const API = {
     //Looks for a novel
     googleNovels: function(query) {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
@@ -28,3 +28,4 @@ deleteNovel: function (id){
 }
     
 };
+export default API;

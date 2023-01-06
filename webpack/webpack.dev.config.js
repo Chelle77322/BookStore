@@ -1,6 +1,5 @@
 import {merge}  from 'webpack-merge';
 import  webpackBaseConfig  from './webpack.base.config.js';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
  const __filename = fileURLToPath(import.meta.url);
@@ -11,11 +10,12 @@ let developmentConfig = () => {
   return merge([
     {
      mode: 'development',
-     entry: path.join(__dirname, "src/js/client", "client.js"),
+     entry: path.join(__dirname, "src/js/client/", "App.jsx"),
       output: {
         path: path.join(__dirname, "dist", "js"),
         filename: 'main.js',
-        publicPath: "/public/",
+        publicPath: "/",
+        libraryTarget: "commonjs2"
        
       }, 
       debug: true,
@@ -26,13 +26,6 @@ let developmentConfig = () => {
     },
   
       plugins: [
-
-       new HtmlWebpackPlugin({
-          
-         title: 'Book Store',
-          filename: '/public/index.html'
-          
-        }),
         new webpack.DefinePlugin({
           isDevelopment: true,
           'process.env': {

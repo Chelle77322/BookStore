@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import NovelCard from "./NovelCard.jsx";
 import Row from "./Row.jsx";
-import SearchForm from "./SearchForm.js"
+import SearchForm from "./SearchForm.jsx"
 import Jumbotron from "./Jumbo.jsx";
 
-import api from "../utils/api.js";
-console.log("api call" + api);
+import API from "../utils/api.js";
+console.log("api call" + API);
 
-class SearchContainer extends Component {
+export default class SearchContainer extends Component {
     state = {
         search: "",
         results: []
@@ -20,7 +20,7 @@ this.SearchNovels("");
 }
 //Query to Google Books API to find the book
 SearchNovels = query => {
-    api.search(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
+    API.search(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
 }
 //When a book is clicked on 
 handlenovelclick = event => {
@@ -66,4 +66,3 @@ render () {
     )
 }
 }
-export default SearchContainer;

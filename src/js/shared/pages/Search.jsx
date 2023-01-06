@@ -3,30 +3,31 @@ import NovelCard from "../components/NovelCard.jsx";
 import Row from "../components/Row.jsx";
 import SearchForm from "../components/SearchForm.jsx";
 import Jumbotron from "../components/Jumbo.jsx";
-import api from "../utils/api.js";
-import "../scss/main-style.scss";
+import API from "../utils/api.js";
+import "../../../styles/main-style.scss";
 
-export class Searched extends Component {
+export default class Searched extends Component {
 
     state = {
         search: "",
         results: []
     };
+    
 //When the page loads initially
 componentDidMount() {
-    console.log("Components successfully mounted");
+    console.log("Components successfully mounted" + state);
     
 }
 
 googleNovels = query => {
-    api.googleNovels(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
+    API.googleNovels(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
 }
 //When save button is clicked
 handlesaveclick = event => {
     const novelInfo = event;
     
 //You then want to save the book to the data base
-api.SaveNovel(novelInfo).then(result => console.log(result)).catch(error => console.log(error));
+    API.SaveNovel(novelInfo).then(result => console.log(result)).catch(error => console.log(error));
 }
 handleinputchange = event => {
     const name = event.target.name;

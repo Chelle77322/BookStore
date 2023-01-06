@@ -1,8 +1,10 @@
+/** LEAVE THIS HERE in case call from client directory doesn't work */
+
 import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import NavTabs from "../shared/components/NavTabs.jsx";
-import Saved from '../shared/pages/Save.jsx';
-import Searched from '../shared/pages/Search.jsx';
+import NavTabs from "./././js/shared/components/NavTabs.jsx";
+import Saved from './././js/shared/pages/Save.jsx';
+import Searched from './././js/shared/pages/Search.jsx';
 
 function App() {
     return (

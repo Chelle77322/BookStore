@@ -1,14 +1,12 @@
-const router = require ("express").Router();
-import { findAll, create } from "../../controllers/novelControl.js";
-//Gets and matches all books
-router.route("/").get(findAll)
-//**THIS MAY BE CAUSING ISSUES */
+const router = require("express").Router();
+import {findAll, findbyId, create, update, remove} from "../../Controllers/novelControl.js";
 
-//post(novelControl.create);
+router.route("/").get(findAll).post(create);
 
-//Gets and matches books based on id
-router.route("/:id").post(create)
-//**ALSO ISSUES */
-//.get(novelControl.findById).put(novelControl.update).delete(novelControl.remove);
+router
+.route("/:id")
+.get(findbyId)
+.put(update)
+.delete(remove);
 
-export default router;
+export default router
