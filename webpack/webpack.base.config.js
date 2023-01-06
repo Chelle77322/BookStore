@@ -124,7 +124,7 @@ let webpackBaseConfig = () => {
       devServer: {
         historyApiFallback: true,
         static: {
-        directory: path.join(__dirname, 'dist', "js", "server"),
+        directory: path.join(__dirname, 'dist'),
           
         },
     
