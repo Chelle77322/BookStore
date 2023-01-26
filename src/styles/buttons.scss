@@ -8,7 +8,7 @@
     padding: 0.25em 1em;
     transition: 180ms ease-in-out;
     transition-property: blend, border;
-    //border-radius: math.div($tdbc-border-radius, 2);
+    border-radius: math.div($tdbc-border-radius, 2);
     background-color: tdbc-color("primary");
     color: #fff;
     font-size: 1.125rem;
@@ -106,5 +106,5 @@
         }
       }
     }
-    // stylelint-enable
+    
   }

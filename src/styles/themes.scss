@@ -1,6 +1,6 @@
-$tdbc-color-primary: #4ac55c !default;
-$tdbc-color-secondary: #c4c843 !default;
-$tdbc-color-background: #cbaf78 !default;
+$tdbc-color-primary: #749d6b !default;
+$tdbc-color-secondary: #b0aba6 !default;
+$tdbc-color-background: #FFFDD0 !default;
 
 
 /* Gradients*/
@@ -17,7 +17,7 @@ $list3: $tdbc-color-background  0%,$tdbc-color-background  10%,$tdbc-color-prima
 
 
 /*Blending image and background*/
-$cool-grad: linear-gradient(rgb(17, 104, 119), rgb(181, 195, 236));
+$cool-grad: linear-gradient(rgb(41, 119, 17), rgb(181, 195, 236));
 $meh-grad: linear-gradient(turquoise, transparent);
 $snarky-grad: linear-gradient(navy 75% aqua);
 

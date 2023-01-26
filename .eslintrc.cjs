@@ -35,4 +35,5 @@ module.exports = {
       Blob: true,
       navigator: true,
     },
+    
   };

@@ -1,6 +1,8 @@
 import React from "react";
 function SearchForm(props){
+  
     return (
+       
 <div>
     <form>
         <div className="form-group">
@@ -10,9 +12,14 @@ function SearchForm(props){
             onChange={props.handleinputchange}
             />
             <button onClick = {props.handleformsubmit} className = "btn btn-primary"> Book Search</button>
+            
         </div>
     </form>
+   
+ 
 </div>
+
     )
+   
 }
 export default SearchForm;

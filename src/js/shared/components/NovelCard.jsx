@@ -9,7 +9,7 @@ const styles = {
 }
 function NovelCard(props){
     return (
-        <div className="col-lg-3" id={props.id}
+        <div className="tdbc-card" id={props.id}
         key={props.id}>
             <div className="img-container">
                 <h5>{props.title}</h5>

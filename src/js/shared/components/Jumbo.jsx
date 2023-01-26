@@ -5,7 +5,7 @@ function Jumbotron(){
         <div className='blend hr'>
             <div className='nr blend'>
                 <h1 className='tdbc-h1'>
-                    BookStore 📚 
+                    Little BookStore 📚 
                 </h1>
                 <p className='tdbc-lead'>
                     Search and find books of interest

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import {merge}  from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -13,12 +14,12 @@ console.log('directory-name', __dirname)
 let productionConfig = () => {
   return merge([
     {
-      entry: path.join(__dirname, "src/js/client/", "App.jsx"),
+      entry: path.join(__dirname, "src/js", "index.jsx"),
       output: {
-        path: path.join(__dirname, "dist", "js"),
+        path: path.join(__dirname, "dist"),
         filename: 'main.js',
         publicPath: "/",
-        libraryTarget: "commonjs2"
+        //libraryTarget: "commonjs2"
       },
       debug: true,
       devtool: 'source-map',

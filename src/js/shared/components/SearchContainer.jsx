@@ -1,17 +1,19 @@
 import React, {Component} from "react";
 import NovelCard from "./NovelCard.jsx";
 import Row from "./Row.jsx";
-import SearchForm from "./SearchForm.jsx"
+import SearchForm from "./SearchForm.js"
 import Jumbotron from "./Jumbo.jsx";
 
-import API from "../utils/api.js";
-console.log("api call" + API);
+import api from"../utils/api.js";
 
-export default class SearchContainer extends Component {
+
+
+class SearchContainer extends Component {
     state = {
-        search: "",
-        results: []
+      search: "",
+       results: [{}]
     };
+
 //Occurs when the page loads
 
 componentDidMount(){
@@ -20,12 +22,14 @@ this.SearchNovels("");
 }
 //Query to Google Books API to find the book
 SearchNovels = query => {
-    API.search(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
+    api.search(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
+    console.log(query);
 }
 //When a book is clicked on 
 handlenovelclick = event => {
     let NovelId = event;
-    console.log(NovelId);
+  
+    
 }
 //Handles the change in input
 handleinputchange = event => {
@@ -38,6 +42,7 @@ handleinputchange = event => {
 handleformsubmit = event => {
     event.preventDefault();
     this.SearchNovels(this.state.search);
+    console.log(this.handleformsubmit);
 }
 render () {
     return (
@@ -48,7 +53,8 @@ render () {
                 googleNovels = {this.state.search}
                 handleformsubmit = {this.handleformsubmit}
                 handleinputchange = {this.handleinputchange}/>
-            </Row>\
+               
+            </Row>
 
             <Row>
                 {this.state.results.map(novel => (
@@ -59,6 +65,9 @@ render () {
                     description={novel.volumeInfo.description}
                     imageLink={novel.volumeInfo.imageLinks.thumbnail}
                     link={novel.volumeInfo.infoLink}
+                    publisher={novel.volumeInfo.publisher}
+                    publishedDate={novel.volumeInfo.publishedDate}
+                    dateAdded={Date.now}
                     handleClick={this.handlenovelclick}/>
                 ))}
             </Row>
@@ -66,3 +75,4 @@ render () {
     )
 }
 }
+export default SearchContainer;

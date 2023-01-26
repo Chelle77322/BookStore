@@ -1,23 +1,27 @@
-/** LEAVE THIS HERE in case call from client directory doesn't work */
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-//import React from 'react';
-//import { BrowserRouter as Router, Route} from "react-router-dom";
-//import NavTabs from "./././js/shared/components/NavTabs.jsx";
-//import Saved from './././js/shared/pages/Save.jsx';
-//import Searched from './././js/shared/pages/Search.jsx';
+import NavTabs from "../src/js/shared/components/NavTabs.jsx";
+import Searched from "../src/js/shared/pages/Search.jsx"
+import Saved from "../src/js/shared/pages/Save.jsx";
+import Home from "../src/js/shared/pages/Home.jsx";
 
-//function App() {
-  //  return (
-    //    <Router>
+function App() {
+    return (
+        <Router>
            
-      //      <div>
-        //    <NavTabs />
-          //  <Route exact path = "/" component = {Searched}/>
-            //    <Route exact path = "/search" component = {Searched}/>
-              //  <Route exact path = "/save" component = {Saved} />
-            //</div>
-            
-        //</Router>
-    //);
-//}
-//export default App;
+            <div>
+            <NavTabs/>
+            <Route exact path = "/" component = {Home}/>
+                <Route exact path = "/search" component = {Searched}/>
+                <Route exact path = "/save" component = {Saved} />
+            </div>
+          
+        </Router>,
+       
+       <Home />
+
+
+    );
+}
+export default App;

@@ -2,10 +2,12 @@ import { merge }  from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 //import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-//import NodePolyfillPlugin from"node-polyfill-webpack-plugin";
+import NodePolyfillPlugin from"node-polyfill-webpack-plugin";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import  webpack from 'webpack';
+
+
  const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log('directory-name', __dirname);
@@ -14,6 +16,12 @@ console.log('directory-name', __dirname);
 let webpackBaseConfig = () => {
   return merge([
     {
+      //target: "node",
+      externals:{
+        "fs": "commonjs fs",
+        "net": "commonjs net",
+        //"express": "express",
+    },
       mode: 'production',
       performance: {
         hints: false,
@@ -68,29 +76,14 @@ let webpackBaseConfig = () => {
               loader: 'url-loader',
             },
           },
-        
         ],
-
-       
       },
-     //resolve:{
-      //fallback:{
-        //querystring: path.resolve("querystring-es6"),
-        //stream: false,
-        //url: path.resolve("url"),
-       // fs: path.resolve("fs"),
-    //tls: false,
-    //net: false,
-    //path: path.resolve("path-browserify"),
-   //zlib: false,
-   //http: path.resolve("http"),
-   // https: path.resolve("stream-http"),
-   //stream: path.resolve("stream-browserify"),
-   // crypto: path.resolve("crypto"),
-    //assert: false,
-    //async_hooks: false
-      //}
-     //},
+      resolve:{
+        fallback:{
+          "async_hooks": false
+        }
+      },
+     
       plugins: [
         new HtmlWebpackPlugin({
           template: './public/index.html',
@@ -100,22 +93,7 @@ let webpackBaseConfig = () => {
           'process.platform': JSON.stringify(process.platform)
         }),
        
-        // new NodePolyfillPlugin({}),
-      
-        //new optimize.DedupePlugin(),
-       
-        //new UglifyJsPlugin({
-          //uglifyOptions: {
-           // mangle: true,
-            //warnings: false,
-            //compress: {
-              //  pure_getters: true,
-                //unsafe: true,
-                //unsafe_comps: true,
-                //screw_ie8: true, // no such option in uglify
-            //},
-          //},
-        //}),
+        new NodePolyfillPlugin(),
         new MiniCssExtractPlugin({
 
           
@@ -123,12 +101,15 @@ let webpackBaseConfig = () => {
       ],
       devServer: {
         historyApiFallback: true,
-        static: {
-        directory: path.join(__dirname, 'dist'),
-          
-        },
+        
+          static: {
+            directory: path.join(__dirname, 'dist'),
+              
+            }
+        }
     
-    },
+    
+    
   }]);
     };
    export default webpackBaseConfig();

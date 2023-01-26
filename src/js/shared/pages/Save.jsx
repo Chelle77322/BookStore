@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbo.jsx";
-import API from "../utils/api.js";
+import api from "../utils/api.js";
 import SaveContainer from "../components/SaveContainer.jsx";
 import "../../../styles/main-style.scss";
 
@@ -11,9 +11,10 @@ export default class Saved extends Component{
     }
     componentDidMount = () =>{
         this.getNovels()
+        console.log(this.componentDidMount);
     }
-    deleteGoogleNovel = currentNovel => {
-        API.deleteNovel (currentNovel.id).then(result => {
+    deleteNovel = currentNovel => {
+        api.deleteNovel (currentNovel.id).then(result => {
             console.log("You have removed this book from your saved list", result);
             this.getNovels();
         }).catch(error => {
@@ -21,7 +22,7 @@ export default class Saved extends Component{
         })
     }
     getNovels = () => {
-        API.getNovels().then (result => {
+        api.getNovels().then (result => {
             this.setState ({
                 savedNovels: result.data
             })
@@ -34,13 +35,13 @@ export default class Saved extends Component{
         return (
             <div className = "container-fluid blend">
                 <Jumbotron />
-                <h2> Saved Books Page</h2>
+                <h2> Books Saved</h2>
                 {this.state.savedNovels.length?(
                     <SaveContainer
                     novelState = {this.state.savedNovels}
-                    deleteGoogleNovel = {this.deleteGoogleNovel}></SaveContainer>
+                    deleteNovel = {this.deleteNovel}></SaveContainer>
                 ): (
-                    <h5>No results to display</h5>
+                    <h5>All Saved books have been deleted</h5>
                 )}
                 
             </div>

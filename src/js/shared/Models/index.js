@@ -1,1 +1,2 @@
-export const Novel = require("./novel.js");
+import Novel from "./novel.js"
+export default Novel;

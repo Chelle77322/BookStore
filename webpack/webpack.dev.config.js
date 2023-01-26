@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import {merge}  from 'webpack-merge';
 import  webpackBaseConfig  from './webpack.base.config.js';
 import path from 'path';
@@ -10,12 +11,12 @@ let developmentConfig = () => {
   return merge([
     {
      mode: 'development',
-     entry: path.join(__dirname, "src/js/client/", "App.jsx"),
+     entry: path.join(__dirname, "src","App.jsx"),
       output: {
-        path: path.join(__dirname, "dist", "js"),
+        path: path.join(__dirname, "dist"),
         filename: 'main.js',
         publicPath: "/",
-        libraryTarget: "commonjs2"
+        //libraryTarget: "commonjs2"
        
       }, 
       debug: true,
