@@ -7,7 +7,7 @@ import apiRoutes from "./api/index.js";
 
 //Specifies the api routes used
 router.use("./api", apiRoutes);
-console.log("I am the " + router)
+console.log("I am the " + apiRoutes )
 
 
 //If you don't get to any API routes send the default REACT App opening page instead

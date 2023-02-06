@@ -1,9 +1,11 @@
 import express from express
 const router = express.Router();
-import {findAll, create,} from "../../js/shared/Controllers/novelControl.js"
+import{findAll, findbyId, findOneAndUpdate, create,remove } from "../../js/shared/Controllers/novelControl.js";
+router.route("/").get(findAll).post(create)
 
-router.route("/").get(findAll);
-router.route("/:id").post(create)
+router.route("/:id")
+.get(findbyId)
+.put(findOneAndUpdate)
+.delete(remove)
 
-
-export default router;
+export  default router

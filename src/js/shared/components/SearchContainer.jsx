@@ -1,78 +1,121 @@
 import React, {Component} from "react";
-import NovelCard from "./NovelCard.jsx";
-import Row from "./Row.jsx";
-import SearchForm from "./SearchForm.js"
-import Jumbotron from "./Jumbo.jsx";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import NavTabs from "./NavTabs.jsx";
 
+import SearchForm from "./SearchForm.js"
 import api from"../utils/api.js";
+import Searched from "../pages/Search.jsx";
+
+import Saved from "../pages/Save.jsx";
+import NovelCard from "./NovelCard.jsx";
 
 
 
 class SearchContainer extends Component {
-    state = {
-      search: "",
-       results: [{}]
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+          home: {
+            title: "Search and Save Books from the Google API",
+          },
+          search: {
+            title: "Search books from the Google Books API",
+            as: "input",
+            type: "button",
+            value: "Input",
+            variant: "success",
+            classes: "float-right mb-2",
+            size: "sm",
+          },
+          saved: {
+            title: "Saved books from the Google Books API",
+          },
+          searchInput: "",
+          books: [],
+          title: "",
+          authors: [],
+          description: "",
+          image: "",
+          link: "",
+          publisher: "",
+          publishedDate: "",
+        };
+      }
 
-//Occurs when the page loads
-
-componentDidMount(){
-console.log("Webpage components have loaded");
-this.SearchNovels("");
-}
-//Query to Google Books API to find the book
-SearchNovels = query => {
-    api.search(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
-    console.log(query);
-}
-//When a book is clicked on 
-handlenovelclick = event => {
-    let NovelId = event;
-  
-    
-}
-//Handles the change in input
-handleinputchange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({[name]: value});
-
-}
-//Handles the search form submission
-handleformsubmit = event => {
+handleinputchange = (event)=> {
+    this.setState({searchInput: event.target.value});
+};
+handleformsubmit = (event) => {
     event.preventDefault();
-    this.SearchNovels(this.state.search);
-    console.log(this.handleformsubmit);
-}
-render () {
-    return (
-        <div className = "container-fluid-five">
-            <Jumbotron />
-            <Row>
-                <SearchForm
-                googleNovels = {this.state.search}
-                handleformsubmit = {this.handleformsubmit}
-                handleinputchange = {this.handleinputchange}/>
-               
-            </Row>
-
-            <Row>
-                {this.state.results.map(novel => (
-                    <NovelCard
-                    id= {novel.volumeInfo.id}
-                    key={novel.volumeInfo.id}
-                    title={novel.volumeInfo.title}
-                    description={novel.volumeInfo.description}
-                    imageLink={novel.volumeInfo.imageLinks.thumbnail}
-                    link={novel.volumeInfo.infoLink}
-                    publisher={novel.volumeInfo.publisher}
-                    publishedDate={novel.volumeInfo.publishedDate}
-                    dateAdded={Date.now}
-                    handleClick={this.handlenovelclick}/>
-                ))}
-            </Row>
-        </div>
+    api.getNovel(this.state.searchInput).then((result)=> {
+        this.setState({novels: [result.data.items]});
+    });
+};
+handlenovelclick = (event)=>{
+    event.preventDefault();
+    let newNovel = this.state.novels[0].filter((novels)=>{
+        return novels.id === event.target.parentNode.dataset.id;
+    });
+let title = newNovel[0].volumeInfo.title;
+let authors = newNovel[0].volumeInfo.authors;
+    let description = newNovel[0].volumeInfo.description;
+    let image = newNovel[0].volumeInfo.imageLinks.thumbnail;
+    let link = newNovel[0].volumeInfo.infoLink;
+    let publisher = newNovel[0].volumeInfo.publisher;
+    let publishedDate = newNovel[0].volumeInfo.publishedDate;
+    this.setState({
+        title: title,
+        authors: authors,
+        description: description,
+        image: image,
+        link: link,
+        publisher: publisher,
+        publishedDate: publishedDate,
+    },
+    () => api.saveNovel({
+        title: this.state.title,
+        authors: this.state.authors,
+        description: this.state.description,
+        image: this.state.image,
+        link: this.state.link,
+        publisher: this.state.publisher,
+        publishedDate: this.state.publishedDate
+    })
+    );
+    alert (`Save Successful`);
+};
+render() {
+    return(
+        <Router>
+            <NavTabs />
+            <SearchForm></SearchForm>
+           <Routes> 
+          <Route exact patch = "/" render={()=>
+          <Home title={this.state.home.title}/>}
+          />
+          <Route exact path = "/search" render={()=>(
+            <Searched title = {this.state.search.title}
+            handleinputchange={this.handleinputchange}
+            handleformsubmit={this.handleformsubmit}
+            novels={this.state.novels}
+            id={this.state.novels}
+            handlenovelclick={this.handlenovelclick}
+            type={this.state.search.type}
+            variant = {this.state.search.variant}
+            className={this.state.search.className}
+            size={this.state.search.size}
+            />
+          )}
+          />
+          <Route exact path = "/saved"
+          render={() => <Saved title = {this.state.saved.title}/>} 
+          />
+          <Route render = {() => <NovelCard />}
+          />
+          
+        </Routes>
+        </Router>
     )
 }
-}
-export default SearchContainer;
+};
+export default SearchContainer

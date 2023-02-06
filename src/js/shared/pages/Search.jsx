@@ -1,71 +1,31 @@
-import React, {Component} from "react";
-import NovelCard from "../components/NovelCard.jsx";
-import Row from "../components/Row.jsx";
-import SearchForm from "../components/SearchForm.js";
+import React from "react";
+import {Container} from 'react-bootstrap';
 import Jumbotron from "../components/Jumbo.jsx";
-import api from "../utils/api.js";
-import "../../../styles/main-style.scss";
-console.log(api);
-export default class Searched extends Component {
+import NovelCard from "../components/NovelCard.jsx";
+import SearchContainer from "../components/SearchContainer.jsx";
 
-    state = {
-        search: "",
-        results: [{}]
-    };
-    
-//When the page loads initially
-componentDidMount() {
-   console.log("Components successfully mounted" + state);
-    
-}
-
-googleNovels = query => {
-    api.googleNovels(query).then(result => this.setState({results:result.data.items})).then(console.log(this.state.results)).catch(error => console.log(error));
-   
-}
-
-//When save button is clicked
-handlesaveclick = event => {
-    const novelInfo = event;
-    
-//You then want to save the book to the data base
-    api.SaveNovel(novelInfo).then(result => console.log(result)).catch(error => console.log(error));
-}
-handleinputchange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({[name]: value});
-}
-handleformsubmit = event => {
-    event.preventDefault();
-    this.googleNovels(this.state.search);
-}
-render() {
+const Search = (props)=> {
     return (
-        <div className = "container-fluid five">
-            <Jumbotron />
-            <Row>
-                <SearchForm
-                search = {this.state.search}
-                handleformsubmit = {this.handleformsubmit}
-                handleinputchange = {this.handleinputchange} />
-            </Row>
-            
-            <Row >
-                    {this.state.results.map(novel => ( 
-                        <NovelCard
-                            id={novel.id} 
-                            key={novel.id} 
-                            title={novel.volumeInfo.title} 
-                            description={novel.volumeInfo.description} 
-                            image={novel.volumeInfo.imageLinks.thumbnail} 
-                            link={novel.volumeInfo.infoLink} 
-                            handlesaveclick={this.handlesaveclick}
-                        />
-                    ))}
-            </Row>
-            </div>
-       
-    )
-}
-}
+        <div>
+            <Jumbotron title = {props.title}/>
+            <Container className = "mb-4">
+                <div className="card p-3 mt-3">
+                <SearchContainer
+                handleinputchange={props.handleinputchange}
+                handleformsubmit={props.handleformsubmit}
+                />
+                </div>
+            </Container>
+            <NovelCard
+            novels={props.novel}
+            handlenovelclick={props.handlenovelclick} as={props.as}
+            type={props.type}
+            value={props.value}
+            variant={props.variant}
+            className={props.classes}
+            size={props.size}
+            />
+        </div>
+    );
+};
+export default Search

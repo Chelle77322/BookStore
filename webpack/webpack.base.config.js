@@ -16,17 +16,17 @@ console.log('directory-name', __dirname);
 let webpackBaseConfig = () => {
   return merge([
     {
-      //target: "node",
+      
       externals:{
         "fs": "commonjs fs",
         "net": "commonjs net",
-        //"express": "express",
+      
     },
-      mode: 'production',
+      mode: 'none',
       performance: {
         hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
+        maxEntrypointSize: 2560000,
+        maxAssetSize: 2560000
     },
       module: {
     rules: [
@@ -103,7 +103,7 @@ let webpackBaseConfig = () => {
         historyApiFallback: true,
         
           static: {
-            directory: path.join(__dirname, 'dist'),
+            directory: path.join(__dirname, 'public'),
               
             }
         }

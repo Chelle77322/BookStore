@@ -3,19 +3,23 @@ import axios from "axios";
 
 //**Changing it back to original api code */
 const api = {
- getNovel: (query) => {
-       
+ getNovel : (query) => {
+   
       return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
-   console.log(getNovel);     
+    
     },
-    deleteNovel: (id)=> {
-        return axios.delete(`/api/novel${id}`);
+    deleteNovel: (id) => {
+        return axios.delete("/api/novels" + id)
     },
     saveNovel:(novelInfo) =>{
-    return axios.post(`/api/novels/${novelInfo.id}`);
+    return axios.post("/api/novels/" , novelInfo);
     },
+    savedNovels: () => {
+      return axios.get("/api/novels");
+    }
   
 }
+
 export default api;
 
 

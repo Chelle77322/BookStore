@@ -17,14 +17,14 @@ $list3: $tdbc-color-background  0%,$tdbc-color-background  10%,$tdbc-color-prima
 
 
 /*Blending image and background*/
-$cool-grad: linear-gradient(rgb(41, 119, 17), rgb(181, 195, 236));
-$meh-grad: linear-gradient(turquoise, transparent);
+$cool-grad: linear-gradient(rgb(193, 239, 178), rgb(181, 195, 236));
+$meh-grad: linear-gradient(rgb(151, 242, 190), transparent);
 $snarky-grad: linear-gradient(navy 75% aqua);
 
 @mixin blendy($img-path, $color: null, $grad: null,
 $blend: screen)
 {
-  $img-path: url('../assets/banner.jpg');
+  $img-path: url('../assets/banner.png');
   @if $grad{
     background: $grad, $img-path;
   } @else {
@@ -34,7 +34,7 @@ $blend: screen)
   background-blend-mode: $blend;
 }
 .blend {
-  @include blendy($img-path: url('../assets/banner.jpg'), $grad: $cool-grad);
+  @include blendy($img-path: url('../assets/banner.png'), $grad: $cool-grad);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;

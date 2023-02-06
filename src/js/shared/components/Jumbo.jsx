@@ -5,10 +5,10 @@ function Jumbotron(){
         <div className='blend hr'>
             <div className='nr blend'>
                 <h1 className='tdbc-h1'>
-                    Little BookStore 📚 
+                    The BookStore
                 </h1>
                 <p className='tdbc-lead'>
-                    Search and find books of interest
+                   Let's look for a book
                 </p>
             </div>
         </div>

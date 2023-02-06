@@ -16,7 +16,7 @@ let developmentConfig = () => {
         path: path.join(__dirname, "dist"),
         filename: 'main.js',
         publicPath: "/",
-        //libraryTarget: "commonjs2"
+        libraryTarget: "commonjs2"
        
       }, 
       debug: true,
