@@ -1,6 +1,6 @@
-$tdbc-color-primary: #749d6b !default;
-$tdbc-color-secondary: #b0aba6 !default;
-$tdbc-color-background: #FFFDD0 !default;
+$tdbc-color-primary: #edfae9 !default;
+$tdbc-color-secondary: #d2d2d1 !default;
+$tdbc-color-background: #fdfcea !default;
 
 
 /* Gradients*/
@@ -17,9 +17,9 @@ $list3: $tdbc-color-background  0%,$tdbc-color-background  10%,$tdbc-color-prima
 
 
 /*Blending image and background*/
-$cool-grad: linear-gradient(rgb(193, 239, 178), rgb(181, 195, 236));
-$meh-grad: linear-gradient(rgb(151, 242, 190), transparent);
-$snarky-grad: linear-gradient(navy 75% aqua);
+$cool-grad: linear-gradient(rgb(245, 253, 242), rgb(225, 232, 255));
+$meh-grad: linear-gradient(rgb(222, 248, 233), transparent);
+$snarky-grad: linear-gradient(rgb(233, 233, 244) 75% rgb(211, 238, 238));
 
 @mixin blendy($img-path, $color: null, $grad: null,
 $blend: screen)

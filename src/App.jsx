@@ -25,9 +25,15 @@ class App extends Component {
               },
               saved: {
                 title: "Saved books from Google Books",
+                as: "input",
+                type: "button",
+                value: "Input",
+                variant: "success",
+                classes: "float-left mb-2",
+                size: "sm"
               },
               searchInput: "",
-              books: [],
+              novels: [],
               title: "",
               authors: [],
               description: "",
@@ -86,27 +92,25 @@ class App extends Component {
             <Router>
                 <NavTabs/>
                 <Routes>
-                <Route exact path ="/" render={() => <Home title={this.state.home.title }/>}/>
+                <Route exact path ="/" element={<Home title={this.state.home.title }/>}/>
                 <Route
-            exact
-            path="/search"
-            render={() => (
+            exact path="/search"
+            element={(
               <Search
                 title={this.state.search.title}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                books={this.state.books}
-                id={this.state.books}
-                handleSaveBook={this.handleSaveBook}
+                handleinputchange={this.handleinputchange}
+                handleformsubmit={this.handleformsubmit}
+                novels={this.state.novels}
+                id={this.state.novels}
+                handlenovelclick={this.handlenovelclick}
                 type={this.state.search.type}
                 variant={this.state.search.variant}
                 className={this.state.search.classes}
                 size={this.state.search.size}
               />)}/>
                 <Route
-            exact
-            path="/saved"
-            render={() => <Saved title={this.state.saved.title} />}
+            exact path="/saved"
+            element={<Saved title={this.state.saved.title} />}
           />
           </Routes>
             </Router>

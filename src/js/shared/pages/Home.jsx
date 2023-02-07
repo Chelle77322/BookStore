@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Jumbo from "../components/Jumbo.jsx";
+
+import Jumbotron from "../components/Jumbo.jsx";
+//import SavedNovels from "../components/SavedNovels.jsx";
 import {Card, Button, Container, Row, Col} from "react-bootstrap";
 
 const Home = (props)=> {
   return(
-    <div>
-      <Jumbo title={props.title}/>
-      <Container className="mt-4">
+    <div className = {props.src}>
+      
+   
+      <Jumbotron title={props.title}/>
+      <Container className="main">
         <Row>
           <Col>
           <Card>
@@ -74,6 +78,7 @@ const Home = (props)=> {
           </Card>
           </Col>
         </Row>
+    
       </Container>
     </div>
   )

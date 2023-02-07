@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Container} from "react-bootstrap";
 import SavedNovels from "./SavedNovels.jsx";
+import Home from "../pages/Home.jsx";
 
 import api from "../utils/api.js";
 
@@ -19,19 +20,19 @@ class SaveContainer extends Component {
             this.setState({novels: result.data});
         }).catch((error)=> console.log(error));
     };
-    removeNovel = (id) => {
-     api.removeNovel(id).then((result)=>{
+    deleteNovel = (id) => {
+     api.deleteNovel(id).then((result)=>{
         alert(`This has already been deleted`);
      })
      .then((result)=> this.loadNovels()).catch((error)=> console.log(error));
     };
-    makeCard = (novels, removeNovel) => {
+    makeCard = (novels, deleteNovel) => {
         return novels.map((novel) => {
             return(
                 <SavedNovels
                 key = {novel._id}
                 novel={novel}
-                removeNovel={removeNovel}
+                deleteNovel={deleteNovel}
                 />
                 
             );
@@ -40,7 +41,7 @@ class SaveContainer extends Component {
     render() {
         return (
             <Container className = "mt-3">
-                {this.makeCard(this.state.novels, this.removeNovel)}
+                {this.makeCard(this.state.novels, this.deleteNovel)}
             </Container>
         );
     }

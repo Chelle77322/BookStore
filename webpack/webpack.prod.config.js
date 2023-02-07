@@ -14,12 +14,12 @@ console.log('directory-name', __dirname)
 let productionConfig = () => {
   return merge([
     {
-      entry: path.join(__dirname, "src/js/", "index.jsx"),
+      entry: path.join(__dirname, "src", "App.jsx"),
       output: {
         path: path.join(__dirname, "dist"),
         filename: 'main.js',
-        publicPath: "/",
-        //libraryTarget: "commonjs2"
+        publicPath: "./",
+        libraryTarget: "commonjs2"
       },
       debug: true,
       devtool: 'source-map',

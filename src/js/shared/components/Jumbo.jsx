@@ -2,8 +2,8 @@ import React from 'react';
 import "../../../styles/main-style.scss"
 function Jumbotron(){
     return (
-        <div className='blend hr'>
-            <div className='nr blend'>
+        <div className='blend ,tdbc-hero'>
+            <div className='hr blend'>
                 <h1 className='tdbc-h1'>
                     The BookStore
                 </h1>

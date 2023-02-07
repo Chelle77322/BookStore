@@ -6,9 +6,9 @@ import SearchContainer from "../components/SearchContainer.jsx";
 
 const Search = (props)=> {
     return (
-        <div>
+        <div className = {props.src}>
             <Jumbotron title = {props.title}/>
-            <Container className = "mb-4">
+            <Container className = "main">
                 <div className="card p-3 mt-3">
                 <SearchContainer
                 handleinputchange={props.handleinputchange}

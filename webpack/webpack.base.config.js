@@ -70,12 +70,26 @@ let webpackBaseConfig = () => {
             ]
           
         },
-          {
-            test: /\.(jpg|png)$/,
-            use: {
-              loader: 'url-loader',
-            },
-          },
+     
+          //{
+            //test: /\.(jpg|png)$/,
+            //use: {
+              //loader: 'url-loader',
+              //options: {
+                //limit: true,
+              //},
+            //},
+            //type: 'javascript/auto'
+          //},
+          //{
+          //  type: "asset",
+          //  parser: {
+          //    dataUrlCondition: {
+           //     maxSize: 10240
+          //    },
+             
+          //  }
+         // }
         ],
       },
       resolve:{

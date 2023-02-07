@@ -9,8 +9,8 @@ const appElement =  createRoot (document.getElementById("root"));
 
 
 appElement.render(
-  
+  <React.StrictMode>
     <App />
 
- 
+    </React.StrictMode>
 );

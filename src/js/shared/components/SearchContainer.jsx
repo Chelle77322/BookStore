@@ -1,12 +1,13 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+//import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavTabs from "./NavTabs.jsx";
-
+import Row from "./Row.jsx"
 import SearchForm from "./SearchForm.js"
 import api from"../utils/api.js";
-import Searched from "../pages/Search.jsx";
+//import Searched from "../pages/Search.jsx";
+//import Home from "../pages/Home.jsx";
 
-import Saved from "../pages/Save.jsx";
+//import Saved from "../pages/Save.jsx";
 import NovelCard from "./NovelCard.jsx";
 
 
@@ -30,8 +31,8 @@ class SearchContainer extends Component {
           saved: {
             title: "Saved books from the Google Books API",
           },
-          searchInput: "",
-          books: [],
+          searchInput: " ",
+          novels: [],
           title: "",
           authors: [],
           description: "",
@@ -40,7 +41,12 @@ class SearchContainer extends Component {
           publisher: "",
           publishedDate: "",
         };
-      }
+      };
+//When the page loads
+componentDidMount() {
+  console.log("Components have mounted");
+console.log(this.state);
+}
 
 handleinputchange = (event)=> {
     this.setState({searchInput: event.target.value});
@@ -50,6 +56,7 @@ handleformsubmit = (event) => {
     api.getNovel(this.state.searchInput).then((result)=> {
         this.setState({novels: [result.data.items]});
     });
+    console.log(this.state.searchInput);
 };
 handlenovelclick = (event)=>{
     event.preventDefault();
@@ -86,35 +93,13 @@ let authors = newNovel[0].volumeInfo.authors;
 };
 render() {
     return(
-        <Router>
-            <NavTabs />
-            <SearchForm></SearchForm>
-           <Routes> 
-          <Route exact patch = "/" render={()=>
-          <Home title={this.state.home.title}/>}
-          />
-          <Route exact path = "/search" render={()=>(
-            <Searched title = {this.state.search.title}
-            handleinputchange={this.handleinputchange}
-            handleformsubmit={this.handleformsubmit}
-            novels={this.state.novels}
-            id={this.state.novels}
-            handlenovelclick={this.handlenovelclick}
-            type={this.state.search.type}
-            variant = {this.state.search.variant}
-            className={this.state.search.className}
-            size={this.state.search.size}
-            />
-          )}
-          />
-          <Route exact path = "/saved"
-          render={() => <Saved title = {this.state.saved.title}/>} 
-          />
-          <Route render = {() => <NovelCard />}
-          />
-          
-        </Routes>
-        </Router>
+       
+          <div className = "tdbc-hero">
+            <NavTabs  />
+            </div>,
+      <Row>
+            <SearchForm />
+     </Row>
     )
 }
 };

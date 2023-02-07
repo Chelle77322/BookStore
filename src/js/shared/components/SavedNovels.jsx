@@ -5,7 +5,7 @@ const SavedNovels = (props) => {
     return (
         <Card className = "mb-4">
             <Card.Header>
-                <strong>Title: {props.novel.title}</strong>{"/"}Author(s):{" "}
+                <strong>title ={props.novel.title}</strong>{"/"}Author(s):{" "}
                 {props.novel.authors}
             </Card.Header>
             <Card.Body>
