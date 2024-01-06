@@ -5,7 +5,7 @@ const router = express.Router();
 //This gets the novel route
 
 router.use("/novel", novelRoutes);
-router.use((req, result)=> {
+router.use((result)=> {
     result.sendFile(path.join__dirname, "dist/index.html");
 });
 

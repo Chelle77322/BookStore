@@ -1,8 +1,7 @@
 import { join } from "path";
-
-import express from "express"
-const router = express.Router();
+import express from "express";
 import apiRoutes from "./api/index.js";
+const router = express.Router();
 
 
 //Specifies the api routes used

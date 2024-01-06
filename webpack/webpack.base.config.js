@@ -16,17 +16,17 @@ console.log('directory-name', __dirname);
 let webpackBaseConfig = () => {
   return merge([
     {
-      
+      //target: "node",
       externals:{
         "fs": "commonjs fs",
         "net": "commonjs net",
-      
+        //"express": "express",
     },
-      mode: 'none',
+      mode: 'production',
       performance: {
         hints: false,
-        maxEntrypointSize: 2560000,
-        maxAssetSize: 2560000
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     },
       module: {
     rules: [
@@ -70,26 +70,12 @@ let webpackBaseConfig = () => {
             ]
           
         },
-     
-          //{
-            //test: /\.(jpg|png)$/,
-            //use: {
-              //loader: 'url-loader',
-              //options: {
-                //limit: true,
-              //},
-            //},
-            //type: 'javascript/auto'
-          //},
-          //{
-          //  type: "asset",
-          //  parser: {
-          //    dataUrlCondition: {
-           //     maxSize: 10240
-          //    },
-             
-          //  }
-         // }
+          {
+            test: /\.(jpg|png)$/,
+            use: {
+              loader: 'url-loader',
+            },
+          },
         ],
       },
       resolve:{
@@ -117,7 +103,7 @@ let webpackBaseConfig = () => {
         historyApiFallback: true,
         
           static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'dist'),
               
             }
         }

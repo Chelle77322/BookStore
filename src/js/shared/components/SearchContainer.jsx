@@ -99,6 +99,7 @@ render() {
             </div>,
       <Row>
             <SearchForm />
+            <NovelCard />
      </Row>
     )
 }
