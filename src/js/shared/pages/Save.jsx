@@ -10,4 +10,5 @@ const Saved = (props)=> {
         </div>
     );
 };
+console.log(Saved);
 export default Saved;

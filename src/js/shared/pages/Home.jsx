@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Jumbotron from "../components/Jumbo.jsx";
-//import SavedNovels from "../components/SavedNovels.jsx";
+//import Search from "Search.jsx";
+//import Save from "../pages/save.jsx";
 import {Card, Button, Container, Row, Col} from "react-bootstrap";
 
 const Home = (props)=> {
@@ -38,7 +39,7 @@ const Home = (props)=> {
 
               </Card.Text>
               <div className = "text-center">
-                <Link to = "/search">
+                <Link to = "./Search">
                   <Button variant="success">SEARCH</Button>
                 </Link>
               </div>
@@ -70,7 +71,7 @@ const Home = (props)=> {
                   <span className="red">e</span> bookstore
               </Card.Text>
               <div className = "text-center">
-                <Link to = "/saved">
+                <Link>
                   <Button variant = "warning">SAVED</Button>
                 </Link>
               </div>

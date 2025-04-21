@@ -9,7 +9,7 @@ const api = {
     
     },
     deleteNovel: (id) => {
-        return axios.delete("/api/novels" + id)
+        return axios.delete("./api/novels" + id)
     },
     saveNovel:(novelInfo) =>{
     return axios.post("/api/novels/" , novelInfo);
@@ -22,7 +22,7 @@ const api = {
 
 export default api;
 
-
+console.log(api);
 
 //eslint-disable-next-line
 //export default {

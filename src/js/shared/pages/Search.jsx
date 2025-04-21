@@ -10,6 +10,7 @@ const Search = (props)=> {
             <Jumbotron title = {props.title}/>
             <Container className = "main">
                 <div className="card p-3 mt-3">
+                <P>I am the search container</P>
                 <SearchContainer
                 handleinputchange={props.handleinputchange}
                 handleformsubmit={props.handleformsubmit}

@@ -1,18 +1,16 @@
 import React, {Component} from "react";
-//import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavTabs from "./NavTabs.jsx";
 import Row from "./Row.jsx"
 import SearchForm from "./SearchForm.js"
 import api from"../utils/api.js";
-//import Searched from "../pages/Search.jsx";
 //import Home from "../pages/Home.jsx";
 
-//import Saved from "../pages/Save.jsx";
 import NovelCard from "./NovelCard.jsx";
 
 
 
-class SearchContainer extends Component {
+export default class SearchContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +21,7 @@ class SearchContainer extends Component {
             title: "Search books from the Google Books API",
             as: "input",
             type: "button",
-            value: "Input",
+            value: "input",
             variant: "success",
             classes: "float-right mb-2",
             size: "sm",
@@ -98,10 +96,10 @@ render() {
             <NavTabs  />
             </div>,
       <Row>
+        
             <SearchForm />
             <NovelCard />
      </Row>
     )
 }
 };
-export default SearchContainer
