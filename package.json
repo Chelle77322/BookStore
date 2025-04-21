@@ -11,6 +11,11 @@
     "lint": "eslint --fix",
     "dev": "webpack-dev-server"
   },
+  "engine":{
+    "node":"18.3.0",
+    "npm": "9.8.1"
+  },
+
   "keywords": [],
   "author": "Michelle Hall",
   "license": "ISC",
@@ -40,6 +45,8 @@
     "mini-css-extract-plugin": "^2.7.5",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
+    "node":"18.3.0",
+    "npm": "9.8.1",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "path": "^0.12.7",
