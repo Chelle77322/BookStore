@@ -9,8 +9,7 @@
     "build": "webpack --config ./webpack.config.babel.js",
     "start": "set NODE_ENV=development && webpack serve --open && src/js/server/server.jsx ",
     "lint": "eslint --fix",
-    "dev": "webpack-dev-server",
-
+    "dev": "webpack-dev-server"
 },
 
   "engine":{
