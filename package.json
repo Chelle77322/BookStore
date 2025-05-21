@@ -11,8 +11,8 @@
     "lint": "eslint --fix",
     "dev": "webpack-dev-server",
     "heroku-postbuild": "ng build --prod"
-}
-  },
+},
+
   "engine":{
     "node":"18.3.0",
     "npm": "9.8.1"
